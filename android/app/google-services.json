@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "974253545168",
+    "project_id": "questcompanion-4edfa",
+    "storage_bucket": "questcompanion-4edfa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974253545168:android:4203aee3d5ee5d430130d5",
+        "android_client_info": {
+          "package_name": "com.example.quest_companion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "974253545168-7958v91qo3v5ecopr4rvaehsi9gedem0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRb9AaXFp873UKJIxWUsFN99vh7DETlTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "974253545168-7958v91qo3v5ecopr4rvaehsi9gedem0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

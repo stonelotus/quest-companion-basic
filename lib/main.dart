@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:quest_companion/firebase_options.dart';
+import 'package:quest_companion/services/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'services/platforms_distinction/platform_web.dart'
+    if (dart.library.io) 'services/platforms_distinction/platform_and.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -106,7 +113,15 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () => {
+          QPlatform.isWeb
+              ? AuthService()
+                  .signInWithGoogleWeb()
+                  .then((value) => {print(value), print("WEEEEEB")})
+              : AuthService()
+                  .signInWithGoogle()
+                  .then((value) => {print(value), print("ANDROIDDDD")})
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.

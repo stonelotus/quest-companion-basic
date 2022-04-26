@@ -29,6 +29,13 @@
             {
               "client_id": "974253545168-7958v91qo3v5ecopr4rvaehsi9gedem0.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "974253545168-lje8hq069hab0mo1j7a4nheu7tjrhvbu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.questCompanion"
+              }
             }
           ]
         }

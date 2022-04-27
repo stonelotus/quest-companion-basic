@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:quest_companion/firebase_options.dart';
+import 'package:quest_companion/services/firebase.dart';
 import 'package:quest_companion/services/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'services/platforms_distinction/platform_web.dart'
@@ -117,10 +120,13 @@ class _MyHomePageState extends State<MyHomePage> {
           QPlatform.isWeb
               ? AuthService()
                   .signInWithGoogleWeb()
-                  .then((value) => {print(value), print("WEEEEEB")})
-              : AuthService()
-                  .signInWithGoogle()
-                  .then((value) => {print(value), print("ANDROIDDDD")})
+                  .then((userInfo) => {print(userInfo), print("WEEEEEBul")})
+              : AuthService().signInWithGoogle().then((userInfo) => {
+                    writeUser({
+                      "email": userInfo.user?.email,
+                      "uid": userInfo.user?.uid
+                    })
+                  })
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),

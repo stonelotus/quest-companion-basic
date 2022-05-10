@@ -1,4 +1,6 @@
 node_modules/
 build/
 build
-
+build/*
+.dart_tool/
+.dart_tool

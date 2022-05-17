@@ -299,6 +299,7 @@ class CountDownController {
 
   /// This Method Starts the Countdown Timer
   void start() {
+    print("Just started mi harties");
     if (_isReverse) {
       _state._controller?.reverse(
           from:

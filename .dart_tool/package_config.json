@@ -62,6 +62,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "duration_picker",
+      "rootUri": "file:///home/stonex/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/duration_picker-1.1.0+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "fake_async",
       "rootUri": "file:///home/stonex/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0",
       "packageUri": "lib/",
@@ -142,6 +148,18 @@
     {
       "name": "flutter_web_plugins",
       "rootUri": "file:///home/stonex/snap/flutter/common/flutter/packages/flutter_web_plugins",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_zoom_drawer",
+      "rootUri": "file:///home/stonex/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_zoom_drawer-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "get_it",
+      "rootUri": "file:///home/stonex/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/get_it-7.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -296,7 +314,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-04-28T20:49:36.062084Z",
+  "generated": "2022-05-17T18:58:11.303128Z",
   "generator": "pub",
   "generatorVersion": "2.16.2"
 }

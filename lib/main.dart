@@ -6,12 +6,14 @@ import 'package:quest_companion/screens/LobbyScreen/lobby.dart';
 import 'package:quest_companion/services/firebase.dart';
 import 'package:quest_companion/services/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:quest_companion/services/service_locator.dart';
 import 'services/platforms_distinction/platform_web.dart'
     if (dart.library.io) 'services/platforms_distinction/platform_and.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  setupLocator();
   runApp(const MyApp());
 }
 

@@ -43,6 +43,7 @@ class _LobbyScreenState extends State<LobbyScreen> {
         child: Center(
           child: InkWell(
             onTap: () => {
+              // apasare buton animalut, tranzitie spre ecranul de focus
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const FocusScreen()))
             },

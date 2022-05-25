@@ -33,214 +33,129 @@ class _FocusScreenState extends State<FocusScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return AdvancedDrawer(
-      backdropColor: Colors.blueGrey,
-      controller: _advancedDrawerController,
-      animationCurve: Curves.easeInOut,
-      animationDuration: const Duration(milliseconds: 300),
-      animateChildDecoration: true,
-      rtlOpening: false,
-      // openScale: 1.0,
-      disabledGestures: false,
-      childDecoration: const BoxDecoration(
-        // NOTICE: Uncomment if you want to add shadow behind the page.
-        // Keep in mind that it may cause animation jerks.
-        // boxShadow: <BoxShadow>[
-        //   BoxShadow(
-        //     color: Colors.black12,
-        //     blurRadius: 0.0,
+    return Scaffold(
+        // appBar: AppBar(
+        //   title: const Text('Advanced Drawer Example'),
+        //   leading: IconButton(
+        //     onPressed: _handleMenuButtonPressed,
+        //     icon: ValueListenableBuilder<AdvancedDrawerValue>(
+        //       valueListenable: _advancedDrawerController,
+        //       builder: (_, value, __) {
+        //         return AnimatedSwitcher(
+        //           duration: Duration(milliseconds: 250),
+        //           child: Icon(
+        //             value.visible ? Icons.clear : Icons.menu,
+        //             key: ValueKey<bool>(value.visible),
+        //           ),
+        //         );
+        //       },
+        //     ),
         //   ),
-        // ],
-        borderRadius: const BorderRadius.all(Radius.circular(16)),
-      ),
-      drawer: SafeArea(
-        child: Container(
-          child: ListTileTheme(
-            textColor: Colors.white,
-            iconColor: Colors.white,
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Container(
-                  width: 128.0,
-                  height: 128.0,
-                  margin: const EdgeInsets.only(
-                    top: 24.0,
-                    bottom: 64.0,
-                  ),
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    color: Colors.black26,
-                    shape: BoxShape.circle,
-                  ),
-                  // child: Image.asset(
-                  //   'assets/images/flutter_logo.png',
-                  // ),
-                ),
-                ListTile(
-                  onTap: () {},
-                  leading: Icon(Icons.home),
-                  title: Text('Home'),
-                ),
-                ListTile(
-                  onTap: () {},
-                  leading: Icon(Icons.account_circle_rounded),
-                  title: Text('Profile'),
-                ),
-                ListTile(
-                  onTap: () {},
-                  leading: Icon(Icons.favorite),
-                  title: Text('Favourites'),
-                ),
-                ListTile(
-                  onTap: () {},
-                  leading: Icon(Icons.settings),
-                  title: Text('Settings'),
-                ),
-                Spacer(),
-                DefaultTextStyle(
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.white54,
-                  ),
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(
-                      vertical: 16.0,
-                    ),
-                    child: Text('Terms of Service | Privacy Policy'),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-
-      child: Scaffold(
-          // appBar: AppBar(
-          //   title: const Text('Advanced Drawer Example'),
-          //   leading: IconButton(
-          //     onPressed: _handleMenuButtonPressed,
-          //     icon: ValueListenableBuilder<AdvancedDrawerValue>(
-          //       valueListenable: _advancedDrawerController,
-          //       builder: (_, value, __) {
-          //         return AnimatedSwitcher(
-          //           duration: Duration(milliseconds: 250),
-          //           child: Icon(
-          //             value.visible ? Icons.clear : Icons.menu,
-          //             key: ValueKey<bool>(value.visible),
-          //           ),
-          //         );
-          //       },
-          //     ),
-          //   ),
-          // ),
-          // // appBar: AppBar(title: const Text("NiceBar")),fluttflu
-          body: Column(children: [
-        Expanded(
-          flex: 2,
-          child: Row(
-            children: [
-              Expanded(
-                child: Container(
-                  child: const Center(
-                    child: Text(
-                      "MIHAI", //TODO PetName
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Divider(
-          color: Colors.black,
-        ),
-        Expanded(
-          flex: 4,
-          child: Center(
-            child: InkWell(
+        // ),
+        // // appBar: AppBar(title: const Text("NiceBar")),fluttflu
+        body: Column(children: [
+      Expanded(
+        flex: 2,
+        child: Row(
+          children: [
+            Expanded(
               child: Container(
-                height: 180,
-                width: 180,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    image: const DecorationImage(
-                        image:
-                            AssetImage('assets/images/companions/waleon.png'))),
+                child: const Center(
+                  child: Text(
+                    "MIHAI", //TODO PetName
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
+            ),
+          ],
+        ),
+      ),
+      Divider(
+        color: Colors.black,
+      ),
+      Expanded(
+        flex: 4,
+        child: Center(
+          child: InkWell(
+            child: Container(
+              height: 180,
+              width: 180,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  image: const DecorationImage(
+                      image:
+                          AssetImage('assets/images/companions/waleon.png'))),
             ),
           ),
         ),
-        Divider(
-          color: Colors.black,
+      ),
+      Divider(
+        color: Colors.black,
+      ),
+      Divider(
+        color: Colors.black,
+      ),
+      TextButton(
+        style: ButtonStyle(
+          foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
         ),
-        Divider(
-          color: Colors.black,
-        ),
-        TextButton(
-          style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-          ),
-          onPressed: () {
-            // print(_countDownController.getTime());
-            debugPrint(getIt<MiscService>().timerRunning.toString());
+        onPressed: () {
+          // print(_countDownController.getTime());
+          debugPrint(getIt<MiscService>().timerRunning.toString());
 
-            getIt<MiscService>().timerRunning
-                ? setState(() {
-                    getIt<MiscService>().timerRunning = false;
+          getIt<MiscService>().timerRunning
+              ? setState(() {
+                  getIt<MiscService>().timerRunning = false;
 
-                    focusButtonText = "START FOCUS";
-                  })
-                : setState(() {
-                    // Start countdown
-                    if (_duration.inSeconds >= minimumCountdownTime) {
-                      getIt<MiscService>().timerRunning = true;
-                      focusButtonText = "STOP FOCUS";
-                    } else {
-                      showDialog<String>(
-                          context: context,
-                          builder: (BuildContext context) => AlertDialog(
-                                title: const Text('Not enough seconds'),
-                                content: const Text(
-                                    'You need to select at least 5 seconds'),
-                                actions: <Widget>[
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(context, 'OK'),
-                                    child: const Text('OK'),
-                                  ),
-                                ],
-                              ));
-                    }
-                  });
-            //  _countDownController.start();
+                  focusButtonText = "START FOCUS";
+                })
+              : setState(() {
+                  // Start countdown
+                  if (_duration.inSeconds >= minimumCountdownTime) {
+                    getIt<MiscService>().timerRunning = true;
+                    focusButtonText = "STOP FOCUS";
+                  } else {
+                    showDialog<String>(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                              title: const Text('Not enough seconds'),
+                              content: const Text(
+                                  'You need to select at least 5 seconds'),
+                              actions: <Widget>[
+                                TextButton(
+                                  onPressed: () => Navigator.pop(context, 'OK'),
+                                  child: const Text('OK'),
+                                ),
+                              ],
+                            ));
+                  }
+                });
+          //  _countDownController.start();
 
-            // print(_countDownController.getTime());
-          },
-          child: Text(focusButtonText),
-        ),
-        Divider(
-          color: Colors.black,
-        ),
-        getIt<MiscService>().timerRunning == true
-            ? CountdownTimer(
-                duration: _duration, countDownController: _countDownController)
-            : DurationPicker(
-                duration: _duration,
-                onChange: (val) {
-                  setState(() => _duration = val);
-                },
-                snapToMins: 5.0,
-                baseUnit: BaseUnit.second,
-              ),
-        Expanded(flex: 2, child: Container())
-      ])),
-    );
+          // print(_countDownController.getTime());
+        },
+        child: Text(focusButtonText),
+      ),
+      Divider(
+        color: Colors.black,
+      ),
+      getIt<MiscService>().timerRunning == true
+          ? CountdownTimer(
+              duration: _duration, countDownController: _countDownController)
+          : DurationPicker(
+              duration: _duration,
+              onChange: (val) {
+                setState(() => _duration = val);
+              },
+              snapToMins: 5.0,
+              baseUnit: BaseUnit.second,
+            ),
+      Expanded(flex: 2, child: Container())
+    ]));
   }
 
   void _handleMenuButtonPressed() {

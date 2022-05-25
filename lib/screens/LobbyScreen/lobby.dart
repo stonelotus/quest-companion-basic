@@ -38,18 +38,60 @@ class _LobbyScreenState extends State<LobbyScreen> {
       Divider(
         color: Colors.black,
       ),
-      Expanded(
-        flex: 4,
-        child: Center(
-          child: InkWell(
-            onTap: () => {
-              // apasare buton animalut, tranzitie spre ecranul de focus
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const FocusScreen()))
-            },
-            child: CompanionSlot(),
+      Row(
+        children: [
+          Expanded(
+            flex: 4,
+            child: Center(
+              child: InkWell(
+                onTap: () => {
+                  // apasare buton animalut, tranzitie spre ecranul de focus
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FocusScreen()))
+                },
+                child: const CompanionSlot(
+                  companionName: 'waleon',
+                ),
+              ),
+            ),
           ),
-        ),
+          Expanded(
+            flex: 4,
+            child: Center(
+              child: InkWell(
+                onTap: () => {
+                  // apasare buton animalut, tranzitie spre ecranul de focus
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FocusScreen()))
+                },
+                child: const CompanionSlot(
+                  companionName: 'waleon',
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 4,
+            child: Center(
+              child: InkWell(
+                onTap: () => {
+                  // apasare buton animalut, tranzitie spre ecranul de focus
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FocusScreen()))
+                },
+                child: const CompanionSlot(
+                  companionName: 'waleon',
+                ),
+              ),
+            ),
+          )
+        ],
       ),
       Divider(
         color: Colors.black,
@@ -59,9 +101,10 @@ class _LobbyScreenState extends State<LobbyScreen> {
         child: Row(
           children: [
             Container(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               color: Colors.yellow,
               child: const Text(
-                "YOUR SWEET BOY",
+                "YOUR QUEST COMPANION",
                 style: TextStyle(color: Colors.black, fontSize: 25),
               ),
             ),
@@ -73,7 +116,9 @@ class _LobbyScreenState extends State<LobbyScreen> {
 }
 
 class CompanionSlot extends StatelessWidget {
+  final String companionName;
   const CompanionSlot({
+    required this.companionName,
     Key? key,
   }) : super(key: key);
 
@@ -84,8 +129,10 @@ class CompanionSlot extends StatelessWidget {
       width: 180,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
-          image: const DecorationImage(
-              image: AssetImage('assets/images/companions/waleon.png'))),
+          image: DecorationImage(
+              image: AssetImage('assets/images/companions/' +
+                  companionName.toString() +
+                  '.png'))),
     );
   }
 }

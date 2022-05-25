@@ -10,3 +10,14 @@ Future<void> writeUser(user) {
       .then((value) => print("Update user done!"))
       .catchError((error) => print("Error updating user" + error.toString()));
 }
+
+Future<void> updateUser(user) {
+  var usersCollection = FirebaseFirestore.instance.collection("users");
+
+  return usersCollection.doc("radoi644@gmail.com").update(user);
+}
+
+Future<void> getUser() {
+  var usersCollection = FirebaseFirestore.instance.collection("users");
+  return usersCollection.doc("radoi_644@gmail.com").get();
+}

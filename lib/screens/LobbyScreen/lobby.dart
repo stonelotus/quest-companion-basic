@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quest_companion/screens/LoginScreen/components/background.dart';
 
 import '../FocusScreen/focus.dart';
 
@@ -14,104 +15,123 @@ class _LobbyScreenState extends State<LobbyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         // appBar: AppBar(title: const Text("NiceBar")),
-        body: Column(children: [
-      Expanded(
-        flex: 2,
-        child: Row(
-          children: [
-            Expanded(
-              child: Container(
-                child: const Center(
-                  child: Text(
-                    "YOUR QUEST COMPANION",
+        body: Background(
+      child: Column(children: [
+        Expanded(
+          flex: 2,
+          child: Row(
+            children: [
+              Expanded(
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.only(top: 40),
+                  child: const Text(
+                    "YOUR QUEST\n     COMPANION",
                     style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 25,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-      Divider(
-        color: Colors.black,
-      ),
-      Row(
-        children: [
-          Expanded(
-            flex: 4,
-            child: Center(
-              child: InkWell(
-                onTap: () => {
-                  // apasare buton animalut, tranzitie spre ecranul de focus
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const FocusScreen()))
-                },
-                child: const CompanionSlot(
-                  companionName: 'waleon',
-                ),
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 4,
-            child: Center(
-              child: InkWell(
-                onTap: () => {
-                  // apasare buton animalut, tranzitie spre ecranul de focus
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const FocusScreen()))
-                },
-                child: const CompanionSlot(
-                  companionName: 'waleon',
-                ),
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 4,
-            child: Center(
-              child: InkWell(
-                onTap: () => {
-                  // apasare buton animalut, tranzitie spre ecranul de focus
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const FocusScreen()))
-                },
-                child: const CompanionSlot(
-                  companionName: 'waleon',
-                ),
-              ),
-            ),
-          )
-        ],
-      ),
-      Divider(
-        color: Colors.black,
-      ),
-      Expanded(
-        flex: 3,
-        child: Row(
+        Divider(
+          color: Colors.black,
+        ),
+        Row(
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              color: Colors.yellow,
-              child: const Text(
-                "YOUR QUEST COMPANION",
-                style: TextStyle(color: Colors.black, fontSize: 25),
+            Expanded(
+              flex: 4,
+              child: Center(
+                child: InkWell(
+                  onTap: () => {
+                    // apasare buton animalut, tranzitie spre ecranul de focus
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FocusScreen()))
+                  },
+                  child: const CompanionSlot(
+                    companionName: 'waleon',
+                  ),
+                ),
               ),
             ),
+            Expanded(
+              flex: 4,
+              child: Center(
+                child: InkWell(
+                  onTap: () => {
+                    // apasare buton animalut, tranzitie spre ecranul de focus
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FocusScreen()))
+                  },
+                  child: const CompanionSlot(
+                    companionName: 'flames',
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 4,
+              child: Center(
+                child: InkWell(
+                  onTap: () => {
+                    // apasare buton animalut, tranzwitie spre ecranul de focus
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FocusScreen()))
+                  },
+                  child: const CompanionSlot(
+                    companionName: 'turtle',
+                  ),
+                ),
+              ),
+            )
           ],
         ),
-      )
-    ]));
+        Divider(
+          color: Colors.black,
+        ),
+        Expanded(
+          flex: 3,
+          child: Row(
+            children: [
+              Container(
+                alignment: Alignment.centerRight,
+                padding: const EdgeInsets.only(left: 120),
+                margin: const EdgeInsets.only(bottom: 140),
+                child: const Text(
+                  "Current\nstreak\n",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF2661FA),
+                      fontSize: 36),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              Container(
+                alignment: Alignment.centerRight,
+                margin: const EdgeInsets.only(bottom: 170, left: 30),
+                child: const Text(
+                  "10",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF2661FA),
+                      fontSize: 36),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+            ],
+          ),
+        )
+      ]),
+    ));
   }
 }
 

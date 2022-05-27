@@ -5,13 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:get_it/get_it.dart';
 import 'package:quest_companion/screens/LoginScreen/components/background.dart';
+import 'package:quest_companion/services/firebase.dart';
 import 'package:quest_companion/services/misc/misc_service.dart';
 import 'package:quest_companion/services/service_locator.dart';
+import 'package:quest_companion/services/user_service/user_service.dart';
 
 import 'components/circular_countdown_timer.dart';
 
 class FocusScreen extends StatefulWidget {
-  const FocusScreen({Key? key}) : super(key: key);
+  const FocusScreen({Key? key, required this.companion}) : super(key: key);
+  final String companion;
   @override
   State<FocusScreen> createState() => _FocusScreenState();
 }
@@ -86,9 +89,10 @@ class _FocusScreenState extends State<FocusScreen> {
                 width: 180,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
-                    image: const DecorationImage(
-                        image:
-                            AssetImage('assets/images/companions/waleon.png'))),
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/companions/' +
+                            widget.companion +
+                            '.png'))),
               ),
             ),
           ),
@@ -213,11 +217,20 @@ class _CountdownTimerState extends State<CountdownTimer> {
         onComplete: () {
           debugPrint('Countdown Ended');
           setState(() {
+            // int currentStreak =
+            //     int.parse(getIt<UserService>().getCachedStreak());
+            // currentStreak++;
+            // getIt<UserService>().setCachedStreak(currentStreak);
+            // updateUser({"streak": currentStreak});
+            getIt<MiscService>().goodStreak++;
+
             showDialog<String>(
                 context: context,
                 builder: (BuildContext context) => AlertDialog(
                       title: const Text('Good job!'),
-                      content: const Text('You have waited for x seconds!!'),
+                      content: Text('You have waited for ' +
+                          widget._duration.inSeconds.toString() +
+                          ' seconds!!'),
                       actions: <Widget>[
                         TextButton(
                           onPressed: () => {

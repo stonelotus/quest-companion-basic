@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:quest_companion/screens/LoginScreen/components/background.dart';
+import 'package:quest_companion/services/firebase.dart';
+import 'package:quest_companion/services/misc/misc_service.dart';
+import 'package:quest_companion/services/service_locator.dart';
+import 'package:quest_companion/services/user_service/user_service.dart';
 
 import '../FocusScreen/focus.dart';
 
@@ -51,7 +55,9 @@ class _LobbyScreenState extends State<LobbyScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const FocusScreen()))
+                            builder: (context) => const FocusScreen(
+                                  companion: 'waleon',
+                                )))
                   },
                   child: const CompanionSlot(
                     companionName: 'waleon',
@@ -68,7 +74,9 @@ class _LobbyScreenState extends State<LobbyScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const FocusScreen()))
+                            builder: (context) => const FocusScreen(
+                                  companion: 'flames',
+                                )))
                   },
                   child: const CompanionSlot(
                     companionName: 'flames',
@@ -85,7 +93,9 @@ class _LobbyScreenState extends State<LobbyScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const FocusScreen()))
+                            builder: (context) => const FocusScreen(
+                                  companion: 'turtle',
+                                )))
                   },
                   child: const CompanionSlot(
                     companionName: 'turtle',
@@ -118,9 +128,10 @@ class _LobbyScreenState extends State<LobbyScreen> {
               Container(
                 alignment: Alignment.centerRight,
                 margin: const EdgeInsets.only(bottom: 170, left: 30),
-                child: const Text(
-                  "10",
-                  style: TextStyle(
+                child: Text(
+                  // getIt<UserService>().getCachedStreak().toString(),
+                  getIt<MiscService>().goodStreak.toString(),
+                  style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF2661FA),
                       fontSize: 36),

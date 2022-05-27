@@ -9,4 +9,6 @@ class MiscService extends ChangeNotifier {
   set timerRunning(bool timerRunning) {
     _timerRunning = ValueNotifier(timerRunning);
   }
+
+  int goodStreak = 0;
 }

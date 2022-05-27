@@ -1,4 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:quest_companion/services/service_locator.dart';
+import 'package:quest_companion/services/user_service/user_service.dart';
 
 Future<void> writeUser(user) {
   var usersCollection = FirebaseFirestore.instance.collection("users");
@@ -17,7 +20,14 @@ Future<void> updateUser(user) {
   return usersCollection.doc("radoi644@gmail.com").update(user);
 }
 
-Future<void> getUser() {
+Future<dynamic> getUser() async {
   var usersCollection = FirebaseFirestore.instance.collection("users");
-  return usersCollection.doc("radoi_644@gmail.com").get();
+  var docSnapshot = await usersCollection.doc('radoi644@gmail.com').get();
+  if (docSnapshot.exists) {
+    Map<String, dynamic>? data = docSnapshot.data();
+    var value = data?['streak']; // <-- The value you want to retrieve.
+    debugPrint(value.toString());
+    getIt<UserService>().setCachedStreak(value);
+    return value;
+  }
 }

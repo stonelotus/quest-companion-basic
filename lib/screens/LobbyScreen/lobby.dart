@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quest_companion/screens/LoginScreen/components/background.dart';
-import 'package:quest_companion/services/firebase.dart';
 import 'package:quest_companion/services/misc/misc_service.dart';
 import 'package:quest_companion/services/service_locator.dart';
-import 'package:quest_companion/services/user_service/user_service.dart';
 
 import '../FocusScreen/focus.dart';
 

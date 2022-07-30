@@ -10,7 +10,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
       body: Background(
@@ -30,27 +30,14 @@ class LoginScreen extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
             ),
-            // Container(
-            //   alignment: Alignment.centerRight,
-            //   margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-            //   child: Text(
-            //     "Forgot your password?",
-            //     style: TextStyle(fontSize: 12, color: Color(0XFF2661FA)),
-            //   ),
-            // ),
-            SizedBox(height: size.height * 0.02),
+            SizedBox(height: screenSize.height * 0.02),
             Container(
               alignment: Alignment.center,
               margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-              child: Positioned(
-                top: 0,
-                right: 0,
-                child:
-                    Image.asset("assets/images/sandra.png", width: size.width),
-              ),
+              child: Image.asset("assets/images/sandra.png",
+                  width: screenSize.width),
             ),
-            SizedBox(height: size.height * 0.0),
-
+            SizedBox(height: screenSize.height * 0.0),
             Container(
               alignment: Alignment.centerRight,
               margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
@@ -70,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                 child: Container(
                   alignment: Alignment.center,
                   height: 50.0,
-                  width: size.width * 0.5,
+                  width: screenSize.width * 0.5,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(80.0),
                       gradient: const LinearGradient(colors: [
